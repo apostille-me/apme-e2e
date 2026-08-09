@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "suite": "apme-e2e",
+  "default_mode": "offline-fixture",
+  "scenarios": [
+    {
+      "id": "document-intake",
+      "required": true,
+      "live_credentials_required": false
+    },
+    {
+      "id": "order-status",
+      "required": true,
+      "live_credentials_required": false
+    },
+    {
+      "id": "apostille-workflow",
+      "required": true,
+      "live_credentials_required": false
+    },
+    {
+      "id": "jurisdiction-routing",
+      "required": true,
+      "live_credentials_required": false
+    },
+    {
+      "id": "payment-handoff",
+      "required": true,
+      "live_credentials_required": false
+    },
+    {
+      "id": "authorization",
+      "required": true,
+      "live_credentials_required": false
+    }
+  ]
+}

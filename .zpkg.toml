@@ -1,0 +1,12 @@
+[package]
+name = "apostille-me/apme-e2e"
+version = "0.1.0"
+
+[install]
+dir = ".vendor/.zed"
+
+[dependencies]
+"apostille-me/apme-clients" = "^0.1.0"
+"apostille-me/apme-interfaces" = "^0.1.0"
+"apostille-me/apme-libs" = "^0.1.0"
+"apostille-me/apme-cli" = "^0.1.0"
