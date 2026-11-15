@@ -6,6 +6,11 @@ const suite = "apme-e2e";
 export async function startFixtureServer(port = 0) {
   const server = createServer((request, response) => {
     response.setHeader("cache-control", "no-store");
+    if (request.method !== "GET") {
+      response.writeHead(405, { "content-type": "application/json", allow: "GET" });
+      response.end(JSON.stringify({ error: "method_not_allowed" }));
+      return;
+    }
     if (request.url === "/healthz") {
       response.writeHead(200, { "content-type": "application/json" });
       response.end(JSON.stringify({ ok: true, suite }));
@@ -14,6 +19,11 @@ export async function startFixtureServer(port = 0) {
     if (request.url === "/contracts") {
       response.writeHead(200, { "content-type": "application/json" });
       response.end(JSON.stringify({ suite, mode: "offline-fixture" }));
+      return;
+    }
+    if (request.url !== "/") {
+      response.writeHead(404, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "not_found" }));
       return;
     }
     response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
